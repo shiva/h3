@@ -10,4 +10,7 @@
   </div>
 </section>
 {{ partial "disqus" . }}
+{{ if eq .Type "gallery" }}
+    {{ partial "load-photoswipe" . }}
+{{ end }}
 {{ partial "footer" . }}

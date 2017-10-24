@@ -1,5 +1,7 @@
 {{ partial "header" . }}
 {{ partial "nav" . }}
+
+{{ $.Scratch.Set "GalleryCount" 0 }}
 <section class="section">
   <div class="container">
     {{ range sort .Paginator.Pages }}
@@ -7,7 +9,11 @@
       <h2 class="subtitle is-6">{{ .Date.Format "January 2, 2006" }}</h2>
       <h1 class="title"><a href="{{ .Permalink }}">{{ .Title }}</a>{{ if .Draft }} ::Draft{{ end }}</h1>
       <div class="content">
-        {{ .Summary | plainify | safeHTML }}
+        {{ if eq .Type "gallery" }}
+            {{ $.Scratch.Add "GalleryCount" 1 }}
+            {{ .Content  }}
+        {{ else }}
+            {{ .Summary | plainify | safeHTML }}
         {{ if .Truncated }}
         ...<a class="button is-link" href="{{ .Permalink }}" style="height:28px">
           Read more
@@ -16,10 +22,14 @@
           </span>
         </a>
         {{ end }}
+        {{ end }}
       </div>
     </article>
     {{ end }}
   </div>
 </section>
 {{ partial "pager" . }}
+{{ if ge ($.Scratch.Get "GalleryCount") 0}}
+    {{ partial "load-photoswipe" . }}
+{{ end }}
 {{ partial "footer" . }}

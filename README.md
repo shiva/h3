@@ -1,8 +1,8 @@
-# Hemingway
+# H3
 
-Hemingway is a really minimal blog theme for hugo.
+H3 renders gallery posts with thumbnails using photoswipe. 
 
-![](https://github.com/tanksuzuki/hemingway/blob/master/images/tn.png)
+H3 = fork\([fork][2]\([Hemingway][1])) + [Hugo Easy Gallery][3] \(using [Photoswipe][4]\)
 
 ## Getting Started
 
@@ -53,6 +53,17 @@ url = "/index.xml"
 fa_icon = "fa-rss"
 ```
 
+## Creating posts
+
+For normal posts, follow instructions on how to create Hugo posts.
+
+To make H3 render posts as gallery, the type of the post should be set to "gallery".
+
+```
+title: <some title>
+*type: gallery*
+```
+
 ## Build
 
 ```
@@ -63,8 +74,17 @@ You can go to localhost:1313 and this theme should be visible.
 
 ## License
 
-Hemingway is licensed under the [MIT License](LICENSE.md).
+H3 is licensed under the [MIT License](LICENSE.md).
 
-## Author
+## Authors
 
-[Asuka Suzuki](https://github.com/tanksuzuki)
+H3 - [Shiva](http://github.com/shiva)
+Hemingway fork - [Lars Cromley](https://github.com/callmeradical)
+Hemingway for Hugo - [Asuka Suzuki](https://github.com/tanksuzuki)
+Hugo Easy Gallery - [Li-Wen Yip](https://github.com/liwenyip)
+Photoswipe - [Dmitry Semenov](https://github.com/dimsemenov)
+
+[1]: https://github.com/tanksuzuki/hemingway
+[2]: https://github.com/callmeradical/hemingway
+[3]: https://github.com/liwenyip/hugo-easy-gallery
+[4]: https://github.com/dimsemenov/PhotoSwipe
